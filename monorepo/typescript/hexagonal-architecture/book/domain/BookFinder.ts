@@ -12,7 +12,7 @@ class BookFinder{
      * Book is goint to be {null || undefined || Book || something else}
      */
     if(book === undefined){
-      throw new BookNotFound(id); // or return null;
+      throw new BookNotFound(id);
     }
     return book;
   }
