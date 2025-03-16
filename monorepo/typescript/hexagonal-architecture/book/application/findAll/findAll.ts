@@ -1,8 +1,10 @@
 import { BookRepository } from "../../domain/repository";
 
-class FindBook{
+class FindAllBook{
     constructor(private bookRepository: BookRepository){}
-    async execute(id: string): Promise<Book>{
-        return await this.bookRepository.find(id);
+    run(): Promise<Book[]>{
+        return this.bookRepository.findAll();
     }
 }
+
+export default FindAllBook;

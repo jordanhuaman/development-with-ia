@@ -1,6 +1,6 @@
 import postgres, { Sql } from "postgres";
 import { BookRepository } from "../domain/repository";
-import { PostgresConfig } from "../shared/utils/postgres.config";
+import { PostgresConfig } from "../../shared/utils/postgres.config";
 class PostgresRepository implements BookRepository {
 
   private readonly sql: Promise<Sql<{}>>;
@@ -36,3 +36,5 @@ class PostgresRepository implements BookRepository {
     return result.length > 0 ? result[0] : undefined;
   }
 }
+
+export default PostgresRepository;
