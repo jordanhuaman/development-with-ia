@@ -10,3 +10,7 @@
   - [ ] Use domain interface in application
   - [ ] Make fake test using the application layer and not send a real email using infraestructure layer
 - [ ] Implement Managed Error in Domain Layer
+- [ ] Implement Test
+  - [x] Unit Test -> mock everything
+  - [ ] Aceptation Test
+  - [ ] Integration Test
