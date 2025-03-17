@@ -1,5 +1,6 @@
 import { BookRepository } from "./repository";
 import BookNotFound from "./BookNotFound";
+import Book from "./Book";
 
 class BookFinder{
   constructor(private bookRepository: BookRepository){}

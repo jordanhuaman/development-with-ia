@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { SERVICE_CONTAINER } from "../../shared/containers";
+import Book from "../domain/Book";
 
 class BookController {
 

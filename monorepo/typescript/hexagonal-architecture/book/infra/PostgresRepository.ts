@@ -1,6 +1,7 @@
 import postgres, { Sql } from "postgres";
 import { BookRepository } from "../domain/repository";
 import { PostgresConfig } from "../../shared/utils/postgres.config";
+import Book from "../domain/Book";
 class PostgresRepository implements BookRepository {
 
   private readonly sql: Promise<Sql<{}>>;

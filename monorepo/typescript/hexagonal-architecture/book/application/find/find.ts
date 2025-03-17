@@ -1,3 +1,4 @@
+import Book from "../../domain/Book";
 import BookFinder from "../../domain/BookFinder";
 import { BookRepository } from "../../domain/repository";
 

@@ -1,3 +1,4 @@
+import Book from "../../domain/Book";
 import { BookRepository } from "../../domain/repository";
 
 class FindAllBook{
