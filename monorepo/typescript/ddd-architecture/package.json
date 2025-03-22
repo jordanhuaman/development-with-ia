@@ -1,0 +1,31 @@
+{
+  "name": "ddd-architecture",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:mooc:backend": "ts-node-dev --respawn --transpile-only ./src/apps/mooc/backend/start.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "compression": "^1.8.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.21.2",
+    "glob": "^11.0.1",
+    "helmet": "^8.1.0",
+    "http-status": "^2.1.0",
+    "node-dependency-injection": "^3.2.2"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.7.5",
+    "@types/errorhandler": "^1.5.3",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.10",
+    "nodemon": "^3.1.9",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.2"
+  }
+}
