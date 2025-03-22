@@ -16,7 +16,8 @@
     "express": "^4.21.2",
     "glob": "^11.0.1",
     "helmet": "^8.1.0",
-    "http-status": "^2.1.0"
+    "http-status": "^2.1.0",
+    "node-dependency-injection": "^3.2.2"
   },
   "devDependencies": {
     "@types/compression": "^1.7.5",
