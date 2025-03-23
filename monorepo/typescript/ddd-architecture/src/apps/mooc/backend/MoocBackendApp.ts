@@ -8,7 +8,12 @@ export class MoocBackendApp{
     this.server = new Server(port);
     return this.server.listen();
   }
-
+  get httpServer() {
+    return this.server?.getHTTPServer();
+  }
+  get expressServer(){
+    return this.server?.getExpressServer();
+  }
   async stop(){
     return this.server?.stop();
   }

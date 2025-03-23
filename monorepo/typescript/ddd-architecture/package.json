@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cucumber-js -p mooc_backend",
     "dev:mooc:backend": "ts-node-dev --respawn --transpile-only ./src/apps/mooc/backend/start.ts"
   },
   "keywords": [],
@@ -20,11 +20,14 @@
     "node-dependency-injection": "^3.2.2"
   },
   "devDependencies": {
+    "@cucumber/cucumber": "^11.2.0",
     "@types/compression": "^1.7.5",
     "@types/errorhandler": "^1.5.3",
     "@types/express": "^5.0.0",
     "@types/node": "^22.13.10",
+    "@types/supertest": "^6.0.2",
     "nodemon": "^3.1.9",
+    "supertest": "^7.1.0",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.2"
   }

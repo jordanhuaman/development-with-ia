@@ -51,7 +51,9 @@ export class Server{
   getHTTPServer(){
     return this.httpServer;
   }
-
+  getExpressServer(){
+    return this.express;
+  }
   async stop(): Promise<void> {
     return new Promise((resolve, reject) => {
       if (this.httpServer) {
