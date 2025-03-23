@@ -4,7 +4,22 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
-jobs: 
+jobs:
+  Android: 
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+  Appcenter:
+    runs-on: ubuntu-latest
+    needs: Android
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run a one-line script
+        run: echo Hello, Wold!
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build
+          echo other
   build: 
     runs-on: ubuntu-latest
     steps:
