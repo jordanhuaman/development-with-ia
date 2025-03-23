@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "test:unit":"jest",
     "test": "cucumber-js -p mooc_backend",
     "dev:mooc:backend": "ts-node-dev --respawn --transpile-only ./src/apps/mooc/backend/start.ts"
   },
