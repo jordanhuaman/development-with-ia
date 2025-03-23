@@ -4,8 +4,10 @@
   "main": "index.js",
   "scripts": {
     "test:unit":"jest",
-    "test": "cucumber-js -p mooc_backend",
-    "dev:mooc:backend": "ts-node-dev --respawn --transpile-only ./src/apps/mooc/backend/start.ts"
+    "test": "npm run test:unit && npm run test:features",
+    "test:features": "npm run test:mooc:backend:features",
+    "dev:mooc:backend": "ts-node-dev --respawn --transpile-only ./src/apps/mooc/backend/start.ts",
+    "test:mooc:backend:features": "cucumber-js -p mooc_backend"
   },
   "keywords": [],
   "author": "",
