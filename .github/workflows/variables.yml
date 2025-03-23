@@ -1,0 +1,23 @@
+name: variables
+env:
+  name: "jordan"
+  from: "windows"
+on: 
+  push:
+    branches: [main]
+  pull_request: 
+    branches: [main]
+jobs:
+  greatuser:
+    runs-on: ubuntu-latest
+    env:
+      job_name: "greateuser from variable"
+    steps:
+      - name: Reading variables from workflow scoped
+        run: echo Hello, $name from $from
+      - name: Reading from jobs scoped
+        run: echo Hello, $job_name
+      - name: Reading from steps scoped
+        env:
+          name_step: "From Step"
+        run: echo hello, $name_step 
