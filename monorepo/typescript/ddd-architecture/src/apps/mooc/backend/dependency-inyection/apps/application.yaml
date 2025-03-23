@@ -5,4 +5,4 @@ services:
     arguments: []
   Apps.mooc.controllers.CoursePutController:
     class: ../../controllers/CoursePutController
-    arguments: []
+    arguments: ['@Mooc.Courses.application.CourseCreator']

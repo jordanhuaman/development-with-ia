@@ -16,7 +16,7 @@ BeforeAll(async ()=>{
 })
 
 Given("I send a GET request to {string}",(route:string)=>{
-  _request = request(application.httpServer).get(route);
+  _request = request(application.httpServer as App).get(route);
 })
 Then('the response status code should be {int}', async (status:number)=>{
   await _request.expect(status)
