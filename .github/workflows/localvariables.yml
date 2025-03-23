@@ -21,3 +21,7 @@ jobs:
         env:
           name_step: "From Step"
         run: echo hello, $name_step 
+      - name: Chanche a variable in the scoped variable
+        run: echo "::set-env name=from::linux"
+      - name: Reading changes
+        run: echo $from
