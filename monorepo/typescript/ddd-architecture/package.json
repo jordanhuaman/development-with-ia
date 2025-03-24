@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cucumber-js -p mooc_backend",
+    "test:unit": "jest",
     "dev:mooc:backend": "ts-node-dev --respawn --transpile-only ./src/apps/mooc/backend/start.ts"
   },
   "keywords": [],
