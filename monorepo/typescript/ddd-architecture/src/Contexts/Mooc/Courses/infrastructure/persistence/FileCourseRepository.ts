@@ -9,6 +9,7 @@ export class FileCourseRepository implements CourseRepository {
   async save(course: Course): Promise<void> {
     fs.promises.writeFile(this.filePath(course.id), BSON.serialize(course));
   }
+  //? We still dont need a search, but we need to mock a test 
   async search(couseId: string): Promise<Course> {
     const courseData = await fs.promises.readFile(this.filePath(couseId));
     const { _id:id, _name:name, _duration:duration } = deserialize(courseData);
