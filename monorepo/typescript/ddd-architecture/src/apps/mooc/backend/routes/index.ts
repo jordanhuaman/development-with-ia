@@ -20,8 +20,12 @@ export function validateReqSchema(req: Request, res: Response, next: NextFunctio
   if (validationsErrors.isEmpty()) {
     return next();
   }
-
-  const errors = validationsErrors.array().map((err) => ({ [err.path]: err.msg }));
-
-  res.status(httpStatus.UNPROCESSABLE_ENTITY).json({ errors })
+  
+  const errors = validationsErrors.array().map((err) => {
+    if ("param" in err && "msg" in err) {
+      return { field: err.param, message: err.msg };
+    }
+    return { field: "unknown", message: "Unknown error" };
+  });
+  res.status(httpStatus.UNPROCESSABLE_ENTITY).json({ errors });
 }

@@ -5,7 +5,7 @@ import { CourseRepositoryMock } from "../__mocks__/CourseRepositoryMock";
 
 describe("CouseCreator", () => {
   let repository: CourseRepositoryMock;
-  beforeAll(()=>{
+  beforeAll(() => {
     repository = new CourseRepositoryMock();
   })
   it('should return a valid course', async () => {
@@ -14,8 +14,8 @@ describe("CouseCreator", () => {
     const name = "jordan";
     const duration = "20-1"
     const expectedCourse = new Course(id, name, duration);
-    
-    await creator.run(id, name, duration);
+
+    await creator.run({ id, name, duration });
 
     repository.assertSaveHaveBeenCalled(expectedCourse);
   })
