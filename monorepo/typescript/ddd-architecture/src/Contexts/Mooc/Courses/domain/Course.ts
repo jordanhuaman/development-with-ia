@@ -1,35 +1,15 @@
+import { Uuid } from "../../../Shared/domain/value-objects/Uuid";
+import { CourseId } from "../../Shared/domain/Courses/CourseId";
+
 export class Course {
-  private _id: string;
-  private _name: string;
-  private _duration: string;
+  id: CourseId;
+  private name: string;
+  private duration: string;
 
-  constructor(id: string, name: string, duration: string) {
-    this._id = id;
-    this._name = name;
-    this._duration = duration;
+  constructor({ id, name, duration }: { id: CourseId, name: string, duration: string }) {
+    this.id = id;
+    this.name = name;
+    this.duration = duration;
   }
 
-  get id(): string {
-    return this._id;
-  }
-
-  set id(value: string) {
-    this._id = value;
-  }
-
-  get name(): string {
-    return this._name;
-  }
-
-  set name(value: string) {
-    this._name = value;
-  }
-
-  get duration(): string {
-    return this._duration;
-  }
-
-  set duration(value: string) {
-    this._duration = value;
-  }
 }
