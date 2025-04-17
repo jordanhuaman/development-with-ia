@@ -9,30 +9,31 @@ import httpStatus from "http-status";
 import { resolve } from "path";
 
 
-export class Server{
+export class Server {
   private express: express.Express;
   private port: string;
-  private httpServer?:http.Server;
-  
-  constructor(port:string){
-    this.port=port;
-    this.express=express();
+  private httpServer?: http.Server;
+
+  constructor(port: string) {
+    this.port = port;
+    this.express = express();
     this.express.use(express.json());
     this.express.use(helmet());
     this.express.use(helmet.xssFilter());
     this.express.use(helmet.hidePoweredBy());
-    this.express.use(helmet.frameguard({action:"deny"}));
-    this.express .use(compression());
+    this.express.use(helmet.frameguard({ action: "deny" }));
+    this.express.use(compression());
 
     const router = Router();
     router.use(errorHandler())
     this.express.use(router);
-    
+
     registerRoutes(router);
 
-    router.use((error:Error, req:Request, res:Response, next:NextFunction) => {
+    router.use((error: Error, req: Request, res: Response, next: NextFunction) => {
+      console.log("ejecuanossssssssss")
       console.error(error);
-      res.status(httpStatus.INTERNAL_SERVER_ERROR).json({msg:"Internal Server Error"});
+      res.status(httpStatus.INTERNAL_SERVER_ERROR).json({ msg: "Internal Server Error" });
     })
   }
 
@@ -48,10 +49,12 @@ export class Server{
     });
   }
 
-  getHTTPServer(){
+  getHTTPServer() {
     return this.httpServer;
   }
-
+  getExpressServer() {
+    return this.express;
+  }
   async stop(): Promise<void> {
     return new Promise((resolve, reject) => {
       if (this.httpServer) {
