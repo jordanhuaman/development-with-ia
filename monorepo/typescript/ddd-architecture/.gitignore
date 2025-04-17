@@ -1,1 +1,4 @@
 **/*.repo
+docker-compose.yml
+persist/
+.history/
