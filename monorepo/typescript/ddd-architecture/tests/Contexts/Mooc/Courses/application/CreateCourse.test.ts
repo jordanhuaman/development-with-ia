@@ -2,11 +2,11 @@ import { CourseCreator } from "../../../../../src/Contexts/Mooc/Courses/applicat
 import { Course } from "../../../../../src/Contexts/Mooc/Courses/domain/Course";
 import { CourseDuration } from "../../../../../src/Contexts/Mooc/Courses/domain/CourseDuration";
 import { CourseName } from "../../../../../src/Contexts/Mooc/Courses/domain/CourseName";
-import { CourseRepository } from "../../../../../src/Contexts/Mooc/Courses/domain/CourseRepository"
 import { CourseNameLenghtExceded } from "../../../../../src/Contexts/Mooc/Courses/domain/CouseNameLenghtExcceded";
 import { CourseId } from "../../../../../src/Contexts/Mooc/Shared/domain/Courses/CourseId";
-import { Uuid } from "../../../../../src/Contexts/Shared/domain/value-objects/Uuid";
 import { CourseRepositoryMock } from "../__mocks__/CourseRepositoryMock";
+import { CourseMother } from "../domain/CourseMother";
+import { CreateCourseRequestMother } from "./CreateCourseRequestMother";
 
 let repository: CourseRepositoryMock;
 let creator: CourseCreator;
@@ -18,19 +18,13 @@ beforeEach(() => {
 
 describe("CouseCreator", () => {
   it('should return a valid course', async () => {
-    const id = "12345678-1234-1234-1234-123456789012";
-    const name = "jordan";
-    const duration = "20-1"
+    const request = CreateCourseRequestMother.random();
 
-    const expectedCourse = new Course({
-      id: new CourseId(id),
-      name: new CourseName(name),
-      duration: new CourseDuration(duration)
-    });
+    const course = CourseMother.fromRequest(request);
 
-    await creator.run({ id, name, duration });
+    await creator.run(request);
 
-    repository.assertSaveHaveBeenCalled(expectedCourse);
+    repository.assertSaveHaveBeenCalled(course)
   })
 
   it('should throw error if course name length is exceeded', async () => {
